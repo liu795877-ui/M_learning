@@ -63,7 +63,14 @@ git:
   prefer_revert_over_destructive_reset: true
 adp_paper_set:
   expected_count: 4
-  status: "waiting_for_pdfs"
+  status: "initialized_waiting_for_prerequisite_course"
   supervisor_order: []
-  adaptive_order: []
+  adaptive_order:
+    - "2021-Zhao-Robust-Control-Robotic-Systems-ADP: map preview only"
+    - "jiang2012computational"
+    - "vamvoudakis2010online"
+    - "zhao2020adaptive"
+    - "2021-Zhao-Robust-Control-Robotic-Systems-ADP: selective deep reading"
+  source_warnings:
+    - "jiang2012computational supplied PDF has internally inconsistent 2018 front matter; replace with verified 2012 version before formula-level reading"
   initialization_command: "初始化这四篇 ADP 论文：先横向分析关系，再生成自适应阅读顺序和预备课程"

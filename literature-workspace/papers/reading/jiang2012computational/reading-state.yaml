@@ -1,0 +1,22 @@
+schema_version: 1
+paper_id: "jiang2012computational"
+citation_key: "jiang2012computational"
+mode: "deep"
+status: "blocked_by_source_warning"
+completed_stages: ["source_inventory", "quick_positioning", "source_audit"]
+current_stage: "waiting_for_verified_pdf_and_prerequisites"
+current_location:
+  section: "Abstract and Section 2 overview"
+  page: 2
+  equation: "ARE / Kleinman iteration"
+  figure: ""
+next_action: "Replace with verified 2012 PDF, then teach state-space to Kleinman PI"
+must_master: ["LQR", "ARE", "Lyapunov equation", "Kleinman PI", "rank condition", "least squares"]
+open_questions: ["How is the data identity derived?", "How much excitation is required?", "How is K0 obtained without a model?"]
+pending_confirmations: ["Confirm replacement of anomalous PDF"]
+source_inventory:
+  pdf: "inbox/Jiang和Jiang - 2012 - Computational adaptive optimal control for continuous-time linear systems with completely unknown dy.pdf"
+  zotero_item: ""
+  screenshots: []
+  repository: ""
+last_updated: "2026-07-13"

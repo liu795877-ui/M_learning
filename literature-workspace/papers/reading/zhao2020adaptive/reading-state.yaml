@@ -1,0 +1,22 @@
+schema_version: 1
+paper_id: "zhao2020adaptive"
+citation_key: "zhao2020adaptive"
+mode: "deep"
+status: "screened"
+completed_stages: ["source_inventory", "quick_positioning"]
+current_stage: "waiting_for_prerequisites"
+current_location:
+  section: "Abstract and Section 2 overview"
+  page: 2
+  equation: "uncertainty decomposition Eq. (2)"
+  figure: ""
+next_action: "Read after P1; teach unmatched uncertainty and robust-optimal equivalence"
+must_master: ["HJB", "single critic", "unmatched uncertainty", "pseudoinverse projection", "PE", "Lyapunov proof"]
+open_questions: ["What assumptions make Lemma 1 valid?", "What converges to the true weight?", "How conservative is the uncertainty bound?"]
+pending_confirmations: []
+source_inventory:
+  pdf: "inbox/Zhao 等 - 2020 - Adaptive dynamic programming based robust control of nonlinear systems with unmatched uncertainties.pdf"
+  zotero_item: ""
+  screenshots: []
+  repository: ""
+last_updated: "2026-07-13"

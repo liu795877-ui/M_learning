@@ -1,0 +1,22 @@
+schema_version: 1
+paper_id: "vamvoudakis2010online"
+citation_key: "vamvoudakis2010online"
+mode: "deep"
+status: "screened"
+completed_stages: ["source_inventory", "quick_positioning"]
+current_stage: "waiting_for_prerequisites"
+current_location:
+  section: "Abstract and paper organization"
+  page: 2
+  equation: ""
+  figure: ""
+next_action: "Complete Bellman/HJB and actor-critic prerequisite lessons"
+must_master: ["HJB", "admissible policy", "policy iteration", "actor-critic", "persistent excitation", "Lyapunov stability"]
+open_questions: ["How do the nonstandard actor terms guarantee stability?", "What exactly converges under PE?"]
+pending_confirmations: []
+source_inventory:
+  pdf: "inbox/Vamvoudakis和Lewis - 2010 - Online actor–critic algorithm to solve the continuous-time infinite horizon optimal control problem.pdf"
+  zotero_item: ""
+  screenshots: []
+  repository: ""
+last_updated: "2026-07-13"
