@@ -1,0 +1,29 @@
+schema_version: 1
+workspace_type: "literature-reading"
+paths:
+  inbox: "inbox"
+  reading: "papers/reading"
+  completed: "papers/completed"
+  skipped: "papers/skipped"
+  knowledge_base: "knowledge-base"
+  reviews: "reviews"
+  pending: ".pending"
+naming:
+  preferred: "citation_key"
+  fallback: "YYYY-FirstAuthor-Short-Title"
+notes:
+  quick: "quick-note.md"
+  full: "full-note.md"
+  formula: "formula-notes.md"
+  figure: "figure-notes.md"
+  code_map: "code-map.md"
+  state: "reading-state.yaml"
+math:
+  inline: "$...$"
+  display: "$$...$$"
+review_triggers:
+  paper_count: 4
+  assigned_set_complete: true
+  repeated_gap_count: 3
+  before_supervisor_meeting: true
+  manual: true

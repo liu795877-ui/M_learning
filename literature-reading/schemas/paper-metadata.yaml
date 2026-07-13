@@ -1,0 +1,29 @@
+schema_version: 1
+required:
+  - title
+  - authors
+  - year
+  - reading_status
+  - source_file
+  - last_updated
+fields:
+  title: string
+  authors: list[string]
+  year: integer_or_null
+  venue: string
+  doi: string
+  citation_key: string
+  aliases: list[string]
+  language: string
+  research_domain: list[string]
+  control_task: string
+  system_type: string
+  reading_status: enum[inbox,screened,reading,completed,skipped]
+  relevance: enum[high,medium,low,unknown]
+  difficulty: enum[low,medium,high,very_high,unknown]
+  source_file: string
+  code_repository: string
+  last_updated: date
+naming:
+  preferred: "citation_key"
+  fallback: "YYYY-FirstAuthor-Short-Title"

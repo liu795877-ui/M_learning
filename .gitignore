@@ -1,0 +1,56 @@
+# OS and editor files
+.DS_Store
+Thumbs.db
+Desktop.ini
+.vscode/
+.idea/
+*.swp
+*~
+
+# Secrets and local environments
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+.venv/
+venv/
+
+# Python and tool caches
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+work/
+tmp/
+*.tmp
+
+# Large or regenerable research artifacts
+*.pdf
+*.zip
+*.7z
+*.rar
+*.tar
+*.gz
+*.h5
+*.hdf5
+*.pt
+*.pth
+*.ckpt
+*.onnx
+*.mat
+*.npy
+*.npz
+*.bag
+*.db3
+
+# Inbox keeps instructions but not imported source files
+literature-workspace/inbox/*
+!literature-workspace/inbox/README.md
+
+# Generated exports and external repositories
+literature-workspace/**/renders/
+literature-workspace/**/figures/generated/
+literature-workspace/**/code-repository/
+literature-workspace/**/external/

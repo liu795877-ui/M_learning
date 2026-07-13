@@ -1,0 +1,69 @@
+schema_version: 1
+workspace_name: "ADP 自适应最优控制文献工作区"
+workspace_type: "literature-reading"
+primary_direction: "ADP 自适应最优控制"
+research_object: "机械臂"
+research_task: "控制"
+research_stage: "导师指定宽泛方向，尚未收敛具体问题"
+research_priority:
+  - "发表学术论文"
+  - "学习导师指定方向"
+  - "复现论文算法"
+  - "形成改进方法"
+  - "完成硕士毕业论文"
+  - "撰写综述或研究现状"
+  - "准备组会汇报"
+paths:
+  inbox: "inbox"
+  reading: "papers/reading"
+  completed: "papers/completed"
+  skipped: "papers/skipped"
+  knowledge_base: "knowledge-base"
+  reviews: "reviews"
+  paper_set: "adp-paper-set"
+  pending: ".pending"
+naming:
+  preferred: "citation_key"
+  fallback: "YYYY-FirstAuthor-Short-Title"
+notes:
+  quick: "quick-note.md"
+  full: "full-note.md"
+  formula: "formula-notes.md"
+  figure: "figure-notes.md"
+  code_map: "code-map.md"
+  state: "reading-state.yaml"
+math:
+  inline: "$...$"
+  display: "$$...$$"
+write_policy:
+  mode: "graded_with_history"
+  pending_path: ".pending"
+  changelog: "changelog.md"
+  require_confirmation:
+    - "跨论文关系"
+    - "创新性判断"
+    - "研究问题与候选创新点"
+    - "知识等级提升"
+review_triggers:
+  assigned_set_complete: true
+  paper_count: 4
+  repeated_gap_count: 3
+  before_supervisor_meeting: true
+  before_topic_selection: true
+  manual: true
+git:
+  enabled: true
+  repository_scope: "skill_and_workspace"
+  source_of_truth: "repository_root"
+  skill_installation_is_copy: true
+  track_notes_and_config: true
+  track_source_pdfs: false
+  track_datasets_and_weights: false
+  require_diff_review_before_commit: true
+  prefer_revert_over_destructive_reset: true
+adp_paper_set:
+  expected_count: 4
+  status: "waiting_for_pdfs"
+  supervisor_order: []
+  adaptive_order: []
+  initialization_command: "初始化这四篇 ADP 论文：先横向分析关系，再生成自适应阅读顺序和预备课程"

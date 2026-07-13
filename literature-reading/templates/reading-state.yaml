@@ -1,0 +1,22 @@
+schema_version: 1
+paper_id: ""
+citation_key: ""
+mode: "quick"
+status: "not_started"
+completed_stages: []
+current_stage: "source_inventory"
+current_location:
+  section: ""
+  page: null
+  equation: ""
+  figure: ""
+next_action: ""
+must_master: []
+open_questions: []
+pending_confirmations: []
+source_inventory:
+  pdf: ""
+  zotero_item: ""
+  screenshots: []
+  repository: ""
+last_updated: "YYYY-MM-DD"

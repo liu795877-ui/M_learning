@@ -1,0 +1,22 @@
+schema_version: 1
+direct_write:
+  - verified bibliographic metadata
+  - source paths and reading state
+  - source-located claims in the current paper note
+paper_note_write:
+  - prerequisite explanations with citations
+  - formula and proof explanations
+  - figure analysis and code mapping
+pending_only:
+  - cross-paper lineage
+  - novelty judgments
+  - research questions and innovation candidates
+  - learner mastery upgrades
+rules:
+  - read existing files before editing
+  - patch only relevant sections
+  - never silently overwrite conflicts
+  - preserve provenance labels
+  - record source, location, date, confidence, and status
+  - append consequential changes to changelog.md
+  - require user confirmation before promoting pending content
