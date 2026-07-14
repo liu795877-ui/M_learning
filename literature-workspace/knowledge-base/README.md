@@ -7,3 +7,4 @@
 ## 学习讲义
 
 - [ADP 预备课程第 1—5 讲总结](concepts/adp-preparatory-course-lessons-01-05.md)
+- [ADP 预备课程第 1—8 讲完整总结](concepts/adp-preparatory-course-lessons-01-08.md)

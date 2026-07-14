@@ -63,7 +63,7 @@ git:
   prefer_revert_over_destructive_reset: true
 adp_paper_set:
   expected_count: 4
-  status: "initialized_waiting_for_prerequisite_course"
+  status: "prerequisite_course_complete_waiting_for_P2_source_verification"
   supervisor_order: []
   adaptive_order:
     - "2021-Zhao-Robust-Control-Robotic-Systems-ADP: map preview only"

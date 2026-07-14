@@ -1,5 +1,12 @@
 # 变更记录
 
+## 2026-07-14
+
+- 完成 ADP 预备课程第 1—8 讲，生成可直接用于 Zotero 的完整 Markdown 总结。
+- 将 Lyapunov、ARE、HJB、PI/VI、Actor–Critic、Bellman 回归、机械臂跟踪、PE、复合 Lyapunov 和 UUB 汇总为统一知识主线。
+- 建立四篇论文的方法映射、公式识别表和正式精读入口；保留 P2 来源版本警告。
+- 更新知识库索引、课程状态、精读计划和下一继续点。
+
 ## 2026-07-13
 
 - 完成 ADP 预备课程第 1—5 讲，生成可直接用于 Zotero 的综合 Markdown 讲义。

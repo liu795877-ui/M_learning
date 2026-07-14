@@ -8,20 +8,22 @@
 - 最小预备课程与符号初始对照。
 - P2 版本异常审计。
 
-## 下一阶段：预备课程第 1 讲
+## 已完成：预备课程第 1—8 讲
 
-主题：从状态空间到 LQR/ARE/Kleinman PI。
+已完成主题：
 
-输出：
+1. 状态反馈、Lyapunov 方程、LQR、ARE 与 Kleinman PI。
+2. Bellman 原理、HJB、PI、VI 与 Actor–Critic。
+3. 机械臂动力学、轨迹跟踪、增广系统与控制偏差。
+4. Bellman 回归、积分学习、PE 与历史数据。
+5. 复合 Lyapunov、权重误差、逼近残差与 UUB。
+6. 四篇论文的方法映射、公式识别与正式精读入口。
 
-1. 一维小车/一阶系统直觉。
-2. $x,A,B,u,K$ 的变量和维度。
-3. 稳定反馈和 Lyapunov 方程。
-4. 二次性能指标与 ARE。
-5. Kleinman PI 伪代码。
-6. 3 个理解题 + 1 次算法复述。
+完整总结：`../knowledge-base/concepts/adp-preparatory-course-lessons-01-08.md`。
 
-完成后才进入 P2 的 Sec. 2–3。
+## 下一阶段：P2 来源核验与公式级精读
+
+先替换或核验可靠的 2012 PDF，再进入 P2 的 Sec. 2–3。
 
 ## P2 精读阶段
 
