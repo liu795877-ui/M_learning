@@ -18,3 +18,14 @@ Always include:
 3. an ASCII mainline for complex methods.
 
 Mermaid is supplementary: the hierarchy tree must remain understandable in Zotero without rendering.
+
+## Zotero anchors and evidence
+
+- Use the page number displayed by the Zotero PDF reader as the canonical page coordinate. Do not add a second printed-journal page coordinate unless the user later requests it.
+- When the Zotero item/attachment key is available, provide a `zotero://open-pdf/...` deep link to the page; otherwise write `Zotero PDF p. X` and mark the missing key.
+- Link an existing Zotero annotation for a key formula, figure, table, or algorithm when available.
+- For key formulas, complex figures, algorithm blocks, and suspected typesetting errors, keep a local evidence crop next to the explanation. Still transcribe formulas as copyable LaTeX. Never guess an unreadable character.
+- Keep a readable navigation map at the top of the Zotero full note and synchronize its deterministic state with `reading-state.yaml`.
+- Update an existing unit by its paper ID, Zotero page, section, and numbered object. Do not create duplicates. Preserve dated corrections and PDF-version changes rather than silently overwriting them.
+
+Use [../templates/deep-reading-unit.md](../templates/deep-reading-unit.md) for each source-grounded unit.

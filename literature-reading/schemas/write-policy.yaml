@@ -3,6 +3,7 @@ direct_write:
   - verified bibliographic metadata
   - source paths and reading state
   - source-located claims in the current paper note
+  - verified anchor pre-scan results and located/explained unit states
 paper_note_write:
   - prerequisite explanations with citations
   - formula and proof explanations
@@ -20,3 +21,5 @@ rules:
   - record source, location, date, confidence, and status
   - append consequential changes to changelog.md
   - require user confirmation before promoting pending content
+  - require user confirmation or a passed check before setting a unit to understood
+  - never advance paper progress for prerequisite tutoring or anchor pre-scan

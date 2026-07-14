@@ -18,7 +18,7 @@ Use a mentor-style, evidence-first workflow for a software-engineering student c
 ## Route the request
 
 - Quick screening, multi-paper triage, ordering: read [modules/paper-screening.md](modules/paper-screening.md).
-- Staged deep reading, translation, teaching, checks: read [modules/deep-reading.md](modules/deep-reading.md) and [modules/prerequisite-tutor.md](modules/prerequisite-tutor.md).
+- Staged deep reading, translation, teaching, checks: read [modules/deep-reading.md](modules/deep-reading.md), [modules/paper-anchor-protocol.md](modules/paper-anchor-protocol.md), and [modules/prerequisite-tutor.md](modules/prerequisite-tutor.md).
 - Formula, algorithm, theorem, proof: also read [modules/formula-and-proof.md](modules/formula-and-proof.md).
 - Figures, tables, curves, screenshots: read [modules/figure-analysis.md](modules/figure-analysis.md).
 - Repository mapping, reproduction, code audit: read [modules/paper-code-map.md](modules/paper-code-map.md).
@@ -37,7 +37,7 @@ Produce a bounded screening report: problem, importance, claimed contribution, e
 
 ### Deep mode
 
-Proceed by learning stages rather than blindly following sections:
+Before teaching, build a verifiable Zotero/PDF anchor index. Then proceed through complete source-grounded units rather than detached numbered lessons:
 
 1. Source inventory and quick positioning.
 2. Minimal prerequisite course.
@@ -49,7 +49,7 @@ Proceed by learning stages rather than blindly following sections:
 8. Research implications and research-question funnel.
 9. Quick/full Zotero notes, reading state, and proposed knowledge updates.
 
-Pause after each stage unless the user requests one-pass output. Use 2–3 short checks for ordinary content; require the user to restate core algorithms or proofs in their own words. Save a clear continuation point.
+Pause after each source unit unless the user requests one-pass output. Use 2–3 short checks for ordinary content; require the user to restate core algorithms or proofs in their own words. Save the exact current and return anchors. Never count prerequisite tutoring or an anchor pre-scan as paper-reading progress.
 
 ## Enforce source labels
 
