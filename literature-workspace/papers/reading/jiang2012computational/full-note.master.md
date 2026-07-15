@@ -24,10 +24,6 @@ difficulty: medium
 source_file: 'inbox/Jiang和Jiang - 2012 - Computational adaptive optimal control for continuous-time linear systems with completely unknown dy.pdf'
 code_repository: ""
 last_updated: '2026-07-15'
-$version: 0
-$libraryID: 1
-$itemKey: 7MHGGSC5
-
 ---
 # 完整学习笔记：Jiang & Jiang (2012)
 

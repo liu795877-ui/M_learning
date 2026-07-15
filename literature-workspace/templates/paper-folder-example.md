@@ -3,7 +3,8 @@
 ```text
 wang2024datadriven/
 ├── quick-note.md
-├── full-note.md
+├── full-note.master.md       # Codex/Git 主版本
+├── full-note.md              # Zotero Better Notes 镜像（Git 忽略）
 ├── formula-notes.md
 ├── figure-notes.md
 ├── code-map.md

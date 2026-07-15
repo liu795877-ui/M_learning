@@ -23,3 +23,6 @@ rules:
   - require user confirmation before promoting pending content
   - require user confirmation or a passed check before setting a unit to understood
   - never advance paper progress for prerequisite tutoring or anchor pre-scan
+  - never edit a Zotero Better Notes mirror directly
+  - run the Zotero note bridge before publishing a canonical master note
+  - capture and review mirror-side changes instead of overwriting them

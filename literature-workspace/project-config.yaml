@@ -27,11 +27,17 @@ naming:
   fallback: "YYYY-FirstAuthor-Short-Title"
 notes:
   quick: "quick-note.md"
-  full: "full-note.md"
+  full: "full-note.master.md"
+  zotero_mirror: "full-note.md"
   formula: "formula-notes.md"
   figure: "figure-notes.md"
   code_map: "code-map.md"
   state: "reading-state.yaml"
+zotero_sync:
+  mode: "isolated_mirror"
+  master_is_source_of_truth: true
+  require_guard_before_publish: true
+  capture_mirror_changes_before_publish: true
 math:
   inline: "$...$"
   display: "$$...$$"

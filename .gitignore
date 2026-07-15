@@ -54,3 +54,11 @@ literature-workspace/**/renders/
 literature-workspace/**/figures/generated/
 literature-workspace/**/code-repository/
 literature-workspace/**/external/
+
+# Zotero Better Notes owns these bidirectional mirrors and generated assets.
+# Git tracks full-note.master.md instead.
+literature-workspace/papers/**/full-note.md
+literature-workspace/papers/**/.zotero-sync-*/
+literature-workspace/papers/**/.zotero-sync-state.json
+literature-workspace/papers/**/attachments/
+literature-workspace/papers/**/full-note.zotero-conflict-*.md

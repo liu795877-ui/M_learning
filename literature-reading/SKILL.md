@@ -86,9 +86,11 @@ Never upgrade mastery automatically. Record an evidence-based recommendation and
 
 Follow the schema in [schemas/write-policy.yaml](schemas/write-policy.yaml). Read before editing, patch only relevant sections, preserve uncertain/conflicting content, and append source/date/confidence to consequential updates. Write deterministic metadata to paper records; write explanations to paper notes; route cross-paper relationships, novelty claims, and research ideas to `.pending/` or pending knowledge-base sections until user confirmation. Append `changelog.md`; never overwrite user material silently.
 
+When Zotero Better Notes sync is enabled, treat `full-note.master.md` as the Git/Codex source of truth and `full-note.md` as the Zotero-owned mirror. Never edit the mirror directly. Before and after publishing, run [scripts/zotero-note-bridge.ps1](scripts/zotero-note-bridge.ps1) with `Status` or `Publish`; stop if the mirror changed since the last baseline, shrank abnormally, or contains a serialization error. Capture Zotero-side edits for manual merge rather than replacing the master.
+
 When the workspace is a Git repository, keep one coherent commit per completed reading stage or confirmed knowledge update. Never commit secrets, large source PDFs, datasets, model weights, caches, or nested external repositories. Do not push, publish, rewrite history, or create a remote unless the user explicitly requests it.
 
-Use [templates/quick-note.md](templates/quick-note.md), [templates/full-note.md](templates/full-note.md), [templates/reading-state.yaml](templates/reading-state.yaml), and [schemas/paper-metadata.yaml](schemas/paper-metadata.yaml) when creating artifacts.
+Use [templates/quick-note.md](templates/quick-note.md), [templates/full-note.md](templates/full-note.md), [templates/reading-state.yaml](templates/reading-state.yaml), and [schemas/paper-metadata.yaml](schemas/paper-metadata.yaml) when creating artifacts. Save the full-note template as the configured canonical master filename.
 
 ## Research priority
 

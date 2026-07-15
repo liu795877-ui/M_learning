@@ -3,7 +3,21 @@
 Create two notes per completed paper:
 
 - `quick-note.md`: fast recall of problem, method, contribution, evidence, limitations, relevance, and next use.
-- `full-note.md`: prerequisite lesson, staged analysis, formula/proof cards, figures, experiments, code mapping, critique, research implications, and learning checks.
+- `full-note.master.md`: Git-tracked canonical note for prerequisite lessons, staged analysis, formulas/proofs, figures, experiments, code mapping, critique, research implications, and learning checks.
+- `full-note.md`: optional Better Notes bidirectional mirror. Zotero owns this file; Codex must not edit it directly.
+
+## Better Notes isolation protocol
+
+Never let Git/Codex and Better Notes share a writable source-of-truth file. A file containing Better Notes fields such as `$version`, `$libraryID`, or `$itemKey` is a sync artifact unless the project explicitly says otherwise.
+
+1. Read `project-config.yaml` and resolve `notes.full` as the master and `notes.zotero_mirror` as the mirror.
+2. Edit only the master. Keep it free of Better Notes synchronization fields.
+3. Before publishing, run `scripts/zotero-note-bridge.ps1 -Action Status -PaperDirectory <dir>`.
+4. If the mirror changed since the baseline, run `Capture`; compare and merge user additions into the master. Do not publish over it.
+5. Run `Publish` only after the master passes structural checks. The bridge backs up the mirror, preserves its Better Notes identifiers, writes the master into the mirror, and records a new baseline.
+6. Treat abrupt shrinkage, missing headings, an unclosed frontmatter block, or `TypeError`/serialization text as corruption. Preserve the mirror for diagnosis and restore only from the master or Git.
+
+Git should track the master and ignore the mirror, Better Notes attachments, synchronization state, and automatic conflict copies.
 
 Use citation key as directory identity when stable; otherwise use `YYYY-FirstAuthor-Short-Title`. Keep aliases in indexes if renamed. Preserve title, authors, year, venue, DOI, citation key, language, domain, task, system type, status, relevance, difficulty, source file, repository, and update date in YAML frontmatter.
 
