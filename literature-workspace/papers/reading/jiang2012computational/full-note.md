@@ -34,11 +34,8 @@ $itemKey: 7MHGGSC5
 ## 0. 来源边界
 
 *   Zotero item：`QP78RTRB`
-
 *   Zotero attachment：`RACDQMBV`
-
 *   正式记录：[ScienceDirect DOI 页面](https://www.sciencedirect.com/science/article/pii/S0005109812003664)
-
 *   【未能确认】本地/Zotero PDF 的可视年份、DOI 年份及部分参考文献被改成 2017-2018，但内嵌元数据、题名和 SHA-256 对应现有附件。公式级阅读必须与出版社 2012 正式页面交叉核对。
 
 ## 1. 论文导航地图
@@ -60,11 +57,16 @@ $itemKey: 7MHGGSC5
 ## 2. 精读单元：系统模型 → 性能指标 → ARE → 最优增益
 
 *   单元 ID：`sec2-eq1-5`
+
 *   状态：`已讲解，待理解确认`
+
 *   位置：Zotero PDF p. 2，Sec. 2，Eqs. (1)-(5)
+
 *   原文起始短语：`Consider a continuous-time linear system described by`
+
 *   Zotero 跳转：[在 Zotero 中打开](zotero://open-pdf/library/items/RACDQMBV?page=2)
-*   本单元在全文中的作用：定义后续数据驱动算法必须在不知道 $A,B$ 时重新求解的标准 LQR 基准。
+
+*   本单元在全文中的作用：定义后续数据驱动算法必须在不知道  $A,B$  时重新求解的标准 LQR 基准。
 
 ### 【论文原文】
 
@@ -98,18 +100,25 @@ $$
 
 ### 【学习解释】
 
-*   式 (1) 定义被控对象：状态变化由自然动力学 $Ax$ 和控制作用 $Bu$ 共同决定。
+*   式 (1) 定义被控对象：状态变化由自然动力学  $Ax$  和控制作用  $Bu$  共同决定。
+
 *   式 (2) 限定策略类别为线性状态反馈。
+
 *   式 (3) 定义“最优”的评价标准：同时惩罚状态偏离和控制能量。
-*   式 (4) 是无限时域连续 LQR 的最优性条件；其正定解 $P^*$ 表示最优价值函数的二次型矩阵。
+
+*   式 (4) 是无限时域连续 LQR 的最优性条件；其正定解  $P^*$  表示最优价值函数的二次型矩阵。
+
 *   式 (5) 把价值矩阵转化成最终控制增益。
 
 ### 【公式逻辑】
 
 *   来源：式 (1) 的线性系统、式 (2) 的策略形式和式 (3) 的二次型代价。
-*   当前作用：建立“已知 $A,B$ 时”的模型驱动最优解，供论文后续无模型算法逼近。
+
+*   当前作用：建立“已知  $A,B$  时”的模型驱动最优解，供论文后续无模型算法逼近。
+
 *   【作者步骤】：论文直接援引线性最优控制理论得到式 (4)-(5)，未展开 HJB 推导。
-*   【补全推导】：令 $V(x)=x^TPx$，代入连续时间 HJB：
+
+*   【补全推导】：令  $V(x)=x^TPx$ ，代入连续时间 HJB：
 
 $$
 0=\min_u\left[x^TQx+u^TRu+2x^TP(Ax+Bu)\right].
@@ -145,7 +154,7 @@ $$
 
 ### 【局部证据截图】
 
-![\<img alt="Zotero PDF p.2, Sec.2, Eqs.1-5" width="635" height="1006" data-attachment-key="WP3YSFBM" src="attachments/WP3YSFBM.png" ztype="zimage"> | 635](attachments/WP3YSFBM.png)
+![\<img alt="Zotero PDF p.2, Sec.2, Eqs.1-5" width="635" height="1006" data-attachment-key="P39MAZ52" src="attachments/P39MAZ52.png" ztype="zimage"> | 635](attachments/P39MAZ52.png)
 
 ### 【理解检查】
 
@@ -154,17 +163,256 @@ $$
 ### 【返回锚点】
 
 *   下一段：Theorem 1 (Kleinman, 1968)
-
 *   位置：Zotero PDF p. 2，Eqs. (6)-(7)
+*   Zotero 跳转：[继续阅读](zotero://open-pdf/library/items/RACDQMBV?page=2)
 
+## 3. 精读单元：Kleinman Policy Iteration
+
+*   单元 ID：`sec2-theorem1-eq6-7`
+*   状态：`已讲解，待理解确认`
+*   位置：Zotero PDF p. 2，Sec. 2，Theorem 1，Eqs. (6)-(7)
+*   原文起始短语：`Let K_1 be any stabilizing feedback gain matrix`
+*   Zotero 跳转：[在 Zotero 中打开](zotero://open-pdf/library/items/RACDQMBV?page=2)
+*   本单元在全文中的作用：把非线性 ARE 的直接求解改写为可迭代的“策略评价 + 策略改进”，为后文的数据驱动改写提供算法骨架。
+
+### 【论文原文】
+
+> “Let $K_1$ be any stabilizing feedback gain matrix...”
+
+### 【中文翻译】
+
+令 $K_1$ 为任意一个能够稳定系统的反馈增益矩阵，并通过 Lyapunov 方程求出当前策略的价值矩阵；随后递归更新策略。
+
+### 【论文原文】式 (6)：策略评价
+
+$$
+(A-BK_k)^TP_k+P_k(A-BK_k)+Q+K_k^TRK_k=0.
+\tag{6}
+$$
+
+### 【论文原文】式 (7)：策略改进
+
+$$
+K_k=R^{-1}B^TP_{k-1}.
+\tag{7}
+$$
+
+论文采用上述索引。将下标整体平移一位后，等价的统一算法形式为：
+
+$$
+K_k
+\xrightarrow{\text{式 (6)：评价}}
+P_k
+\xrightarrow{\text{式 (7)：改进}}
+K_{k+1}=R^{-1}B^TP_k.
+$$
+
+### 【公式逻辑】
+
+*   来源：式 (1)-(5) 的线性系统、二次代价、ARE 与最优增益关系。
+
+*   当前作用：避免直接求解关于 $P$ 非线性的 ARE，改为反复求解关于 $P_k$ 线性的 Lyapunov 方程。
+
+*   【作者步骤】：论文给出式 (6)、式 (7)及稳定性、代价单调性和收敛性结论，没有在正文中重证 Kleinman 定理。
+
+*   【补全推导】：对固定策略 $u=-K_kx$ ，闭环矩阵为
+
+$$
+A_k=A-BK_k.
+$$
+
+当前策略的瞬时代价变成
+
+$$
+x^TQx+u^TRu
+=x^T(Q+K_k^TRK_k)x.
+$$
+
+令当前策略的价值函数为 $V_k(x)=x^TP_kx$，则
+
+$$
+\dot V_k
+=x^T(A_k^TP_k+P_kA_k)x.
+$$
+
+为了让 $V_k$ 等于从当前时刻到无穷远的累计代价，需要满足
+
+$$
+\dot V_k=-x^T(Q+K_k^TRK_k)x,
+$$
+
+这正好得到式 (6)。然后利用 $P_k$ 对策略进行贪心改进，得到 $K_{k+1}=R^{-1}B^TP_k$。
+
+*   后续去向：式 (8)尝试不显式使用  $A$  来实现策略评价；Sec. 3 再进一步消除对  $B$  的依赖。
+
+### 【学习解释】
+
+把它对应到软件工程中的迭代过程：
+
+```
+当前策略 K_k
+    -> 计算它的长期代价模型 P_k       # policy evaluation
+    -> 根据 P_k 生成更好的 K_{k+1}    # policy improvement
+    -> 重复，直到 P_k 不再明显变化
+```
+
+式 (6) 对 $P_k$ 是线性的，因为 $K_k$ 在本轮被视为已知常量；ARE 中则含有 $PBR^{-1}B^TP$，对 $P$ 是二次的。
+
+### Theorem 1 的三条保证
+
+1.  $A-BK_k$  始终是 Hurwitz：每轮学习都保持闭环稳定。
+
+2.  $P^*\preceq P_{k+1}\preceq P_k$ ：代价矩阵按半正定序单调下降，而不是每个矩阵元素逐项下降。
+
+3.  $K_k\to K^*$ 、 $P_k\to P^*$ ：迭代最终收敛到 LQR 最优解。
+
+### 【批判性分析】
+
+Theorem 1 还不是本文最终的无模型算法：式 (6)需要 $A-BK_k$，式 (7)需要 $B$。它只提供正确的策略迭代骨架；后续真正的贡献是用状态与输入数据替代这些未知矩阵。
+
+### 【局部证据截图】
+
+![\<img alt="Zotero PDF p.2, Theorem 1, Eqs.6-7" width="688" height="776" data-attachment-key="W7UNLSVS" src="attachments/W7UNLSVS.png" ztype="zimage"> | 688](attachments/W7UNLSVS.png)
+
+### 【理解检查】
+
+请用自己的话复述：为什么式 (6)叫“策略评价”，式 (7)叫“策略改进”，以及 Theorem 1 保证了哪三件事。
+
+### 【返回锚点】
+
+*   下一段：`For the purpose of solving (6) without the knowledge of A...`
+*   位置：Zotero PDF p. 2，Eq. (8)及其后续局限分析
+*   Zotero 跳转：[继续阅读](zotero://open-pdf/library/items/RACDQMBV?page=2)
+
+## 4. 精读单元：轨迹积分策略评价及其局限
+
+*   单元 ID：`sec2-eq8-limitations`
+*   状态：`已讲解，待理解确认`
+*   位置：Zotero PDF p. 2，Sec. 2，Eq. (8)及其后续三段说明
+*   原文起始短语：`For the purpose of solving (6) without the knowledge of A`
+*   Zotero 跳转：[在 Zotero 中打开](zotero://open-pdf/library/items/RACDQMBV?page=2)
+*   本单元在全文中的作用：说明如何通过状态轨迹评价当前策略，同时明确旧方法为什么仍不是真正的完全无模型算法。
+
+### 【论文原文】式 (8)
+
+$$
+x^T(t)P_kx(t)-x^T(t+\delta t)P_kx(t+\delta t)
+=
+\int_t^{t+\delta t}
+\left(x^TQx+u_k^TRu_k\right)d\tau,
+\tag{8}
+$$
+
+其中：
+
+$$
+u_k=-K_kx.
+$$
+
+### 【中文翻译】
+
+在时间区间 $[t,t+\delta t]$ 上，价值函数的下降量等于当前策略产生的累计状态代价与控制代价。
+
+### 【公式逻辑】
+
+*   来源：Theorem 1 的策略评价 Lyapunov 方程 (6)。
+
+*   当前作用：将含有未知 $A$ 的 Lyapunov 方程变成只含状态轨迹、控制输入和未知 $P_k$ 的积分等式。
+
+*   【作者步骤】：论文给出积分恒等式，并说明在充分激励条件下可以由在线测得的 $x,u_k$ 唯一确定对称矩阵 $P_k$ 。
+
+*   【补全推导】：固定策略 $u_k=-K_kx$ 时，式 (6)给出
+
+$$
+\frac{d}{dt}\left(x^TP_kx\right)
+=-x^T(Q+K_k^TRK_k)x.
+$$
+
+又因为 $u_k^TRu_k=x^TK_k^TRK_kx$，所以
+
+$$
+\frac{d}{dt}\left(x^TP_kx\right)
+=-\left(x^TQx+u_k^TRu_k\right).
+$$
+
+从 $t$ 积分到 $t+\delta t$ 并移项，就得到式 (8)。
+
+*   后续去向：Sec. 3 的式 (9)-(10)保留任意实际输入  $u$  ，把探索信号产生的附加项显式纳入等式，并将  $P_k$  与  $K_{k+1}$  一起求解。
+
+### 【学习解释】
+
+式 (8)可以看成一条监督学习样本：
+
+```
+输入特征：x(t)、x(t+δt)及区间内的 x、u_k
+未知参数：对称矩阵 P_k
+监督目标：区间累计代价
+```
+
+因为 $x^TP_kx$ 对 $P_k$ 的独立元素是线性的，多收集若干个不同时间区间，就能组成线性方程组求 $P_k$。对称 $n\times n$ 矩阵只有 $n(n+1)/2$ 个独立未知量，但样本还必须足够丰富、回归矩阵具有足够秩；只有样本数量多并不保证可辨识。
+
+### 论文明确指出的局限
+
+1.  **仍需知道$B$**：式 (8)只替代式 (6)中的  $A$ ；策略改进式 (7)仍为  $K_{k+1}=R^{-1}B^TP_k$ 。
+
+2.  **需要充分激励**：若状态轨迹变化方向不足，就无法唯一恢复  $P_k$ 。
+
+3.  **探索噪声破坏严格等价**：实际输入若为  $u=-K_kx+e$ ，系统轨迹不再由纯闭环  $dot x=(A-BK_k)x$  产生。
+
+4.  **每轮需要重新采集数据**： $K_k$  更新后，纯策略轨迹也发生变化，导致学习速度降低。
+
+### 【补全推导】探索噪声为什么会产生偏差
+
+若实际控制输入为
+
+$$
+u=-K_kx+e,
+$$
+
+则状态方程变成
+
+$$
+\dot x=(A-BK_k)x+Be.
+$$
+
+此时价值函数导数多出一项：
+
+$$
+\dot V_k
+=-x^T(Q+K_k^TRK_k)x
++2e^TB^TP_kx.
+$$
+
+式 (8)没有包含 $2e^TB^TP_kx$，所以使用带探索噪声的真实轨迹直接套用式 (8)，得到的 $P_k$ 一般不再与式 (6)的精确解相同。
+
+### 【批判性分析】
+
+式 (8)已经具有数据驱动特征，但只能称为“部分无模型的策略评价”：它没有解决策略改进对 $B$ 的依赖，也没有自然容纳探索输入。因此不能把它与本文 Sec. 3 的完全未知动力学算法混为一谈。
+
+### 【局部证据截图】
+
+![\<img alt="Zotero PDF p.2, Eq.8 and limitations" data-attachment-key="HERZH5BD" src="attachments/HERZH5BD.png" ztype="zimage">](attachments/HERZH5BD.png)
+
+### 【理解检查】
+
+请说明：式 (8)消除了哪个未知矩阵？为什么加入探索噪声后不能直接使用原式？为什么还不能称为完全无模型？
+
+### 【返回锚点】
+
+*   下一段：`In this section, we will present our new online learning strategy...`
+*   位置：Zotero PDF p. 2，Sec. 3，Eqs. (9)-(10)
 *   Zotero 跳转：[继续阅读](zotero://open-pdf/library/items/RACDQMBV?page=2)
 
 ## 5. 完整部分精读：Section 3 完全未知动力学的计算型自适应最优控制
 
 *   部分 ID：`sec3-complete-method`
+
 *   状态：`已讲解，待理解确认`
+
 *   位置：Zotero PDF p. 2-3，Sec. 3，Eqs. (9)-(13)，Fig. 1，Algorithm 1，Lemma 6，Theorem 7
+
 *   Zotero 跳转：[从 Sec. 3 开始](zotero://open-pdf/library/items/RACDQMBV?page=2)
+
 *   本部分在全文中的作用：把 Kleinman PI 等价改写为只依赖一次采集的状态—输入数据的线性回归，并继承其收敛性。
 
 ### 方法主线
@@ -228,8 +476,11 @@ $$
 #### 【公式逻辑】
 
 *   来源：式 (9)、策略评价式 (6)和策略改进式 (7)。
-*   当前作用：把$A_k^TP_k+P_kA_k$替换为$-Q_k$，把$B^TP_k$替换为$RK_{k+1}$，从最终等式中消除未知$A,B$。
-*   【作者步骤】：沿式 (9)求$x^TP_kx$的导数，再使用式 (6)-(7)完成代换。
+
+*   当前作用：把 $A_k^TP_k+P_kA_k$ 替换为 $-Q_k$ ，把 $B^TP_k$ 替换为 $RK_{k+1}$ ，从最终等式中消除未知 $A,B$ 。
+
+*   【作者步骤】：沿式 (9)求 $x^TP_kx$ 的导数，再使用式 (6)-(7)完成代换。
+
 *   【补全推导】：
 
 $$
@@ -262,7 +513,7 @@ $$
 
 并把 $e$ 的作用保留在可测量的 $u+K_kx$ 中，不再遗漏探索交叉项。
 
-![\<img alt="Zotero p.2, Sec.3, Eqs.9-10" data-attachment-key="57DHZGR8" src="attachments/57DHZGR8.png" ztype="zimage">](attachments/57DHZGR8.png)
+![\<img alt="Zotero p.2, Sec.3, Eqs.9-10" data-attachment-key="EUEE3TRK" src="attachments/EUEE3TRK.png" ztype="zimage">](attachments/EUEE3TRK.png)
 
 ### 5.3 从矩阵未知量变成参数向量
 
@@ -357,7 +608,7 @@ $$
 
 这是普通最小二乘/左伪逆。实现时不应显式计算矩阵逆，宜使用 QR、SVD 或 `lstsq`。
 
-![\<img alt="Zotero p.3, Eqs.11-12" data-attachment-key="RM8RJENU" src="attachments/RM8RJENU.png" ztype="zimage">](attachments/RM8RJENU.png)
+![\<img alt="Zotero p.3, Eqs.11-12" data-attachment-key="PXUXQTX7" src="attachments/PXUXQTX7.png" ztype="zimage">](attachments/PXUXQTX7.png)
 
 ### 5.6 【论文原文】式 (13)：数据秩条件
 
@@ -373,13 +624,10 @@ $$
 
 ### 5.7 Algorithm 1
 
-1.  选择稳定  $K_0$ ，在  $[t_0,t_l]$  使用  $u=-K_0x+e$ ；采集数据，直到式 (13)成立。
-
-2.  令  $k=0$ ，由式 (12)同时求  $P_k$  和  $K_{k+1}$ 。
-
-3.  令  $k\leftarrow k+1$ ，继续使用同一批  $\delta_{xx},I_{xx},I_{xu}$  重建  $\Theta_k,\Xi_k$ 并求解。
-
-4.  当  $\lVert P_k-P_{k-1}\rVert\le\varepsilon$  时停止，使用  $u=-K_kx$ 。
+1.  选择稳定 $K_0$，在 $[t_0,t_l]$ 使用 $u=-K_0x+e$；采集数据，直到式 (13)成立。
+2.  令 $k=0$，由式 (12)同时求 $P_k$ 和 $K_{k+1}$。
+3.  令 $k\leftarrow k+1$，继续使用同一批 $\delta_{xx},I_{xx},I_{xu}$ 重建 $\Theta_k,\Xi_k$并求解。
+4.  当 $\lVert P_k-P_{k-1}\rVert\le\varepsilon$ 时停止，使用 $u=-K_kx$。
 
 <!---->
 
@@ -414,38 +662,29 @@ $$
 
 #### 【作者证明主线】
 
-1.  真实的 Kleinman 对  $(P_k,K_{k+1})$ 由式 (10)推出必然满足数据方程 (12)。
-
+1.  真实的 Kleinman 对 $(P_k,K_{k+1})$由式 (10)推出必然满足数据方程 (12)。
 2.  Lemma 6 保证数据方程的解唯一，所以式 (12)求出的解只能等于真实 Kleinman 对。
-
 3.  因此数据驱动迭代 (12)与模型驱动迭代 (6)-(7)完全等价。
-
-4.  Theorem 1 已证明 Kleinman 迭代收敛，所以式 (12)也收敛到  $P^*,K^*$ 。
+4.  Theorem 1 已证明 Kleinman 迭代收敛，所以式 (12)也收敛到 $P^*,K^*$。
 
 这里的证明不是重新建立一套收敛理论，而是证明“数据方程与已知收敛的 Kleinman PI 等价”。
 
-![\<img alt="Zotero p.3, Algorithm 1 and Theorem 7" data-attachment-key="WWHABYFY" src="attachments/WWHABYFY.png" ztype="zimage">](attachments/WWHABYFY.png)
+![\<img alt="Zotero p.3, Algorithm 1 and Theorem 7" data-attachment-key="ABJFLE47" src="attachments/ABJFLE47.png" ztype="zimage">](attachments/ABJFLE47.png)
 
 ### 5.9 【批判性分析】Section 3 真正做到与没有做到的事
 
 **做到：**
 
-*   迭代计算不需要使用  $A$  或  $B$ ；
-
+*   迭代计算不需要使用 $A$ 或 $B$；
 *   探索输入可被式 (10)精确容纳；
-
 *   同一批数据可用于全部策略迭代；
-
 *   在秩条件和稳定初始策略下继承 Kleinman 的收敛保证。
 
 **没有做到：**
 
-*   仍假设全部状态  $x$  可测；
-
-*   仍需事先拥有稳定  $K_0$ ；
-
+*   仍假设全部状态 $x$ 可测；
+*   仍需事先拥有稳定 $K_0$；
 *   仍需人为设计足够丰富的探索信号；
-
 *   理论建立在精确积分和充分秩上，测量噪声、数值条件数与输入约束没有在定理中解决。
 
 所以“completely unknown dynamics”准确含义是“不知道系统矩阵 $A,B$”，不是“没有任何先验条件”。
@@ -457,247 +696,5 @@ $$
 ### 【返回锚点】
 
 *   下一部分：Section 4 柴油机应用、探索信号、停止条件与实验结果
-
 *   位置：Zotero PDF p. 4，原文开头 `In this section, we study the controller design...`
-
 *   Zotero 跳转：[继续阅读](zotero://open-pdf/library/items/RACDQMBV?page=4)
-
-## 4. 精读单元：轨迹积分策略评价及其局限
-
-*   单元 ID：`sec2-eq8-limitations`
-
-*   状态：`已讲解，待理解确认`
-
-*   位置：Zotero PDF p. 2，Sec. 2，Eq. (8)及其后续三段说明
-
-*   原文起始短语：`For the purpose of solving (6) without the knowledge of A`
-
-*   Zotero 跳转：[在 Zotero 中打开](zotero://open-pdf/library/items/RACDQMBV?page=2)
-
-*   本单元在全文中的作用：说明如何通过状态轨迹评价当前策略，同时明确旧方法为什么仍不是真正的完全无模型算法。
-
-### 【论文原文】式 (8)
-
-$$
-x^T(t)P_kx(t)-x^T(t+\delta t)P_kx(t+\delta t)
-=
-\int_t^{t+\delta t}
-\left(x^TQx+u_k^TRu_k\right)d\tau,
-\tag{8}
-$$
-
-其中：
-
-$$
-u_k=-K_kx.
-$$
-
-### 【中文翻译】
-
-在时间区间 $[t,t+\delta t]$ 上，价值函数的下降量等于当前策略产生的累计状态代价与控制代价。
-
-### 【公式逻辑】
-
-*   来源：Theorem 1 的策略评价 Lyapunov 方程 (6)。
-*   当前作用：将含有未知$A$的 Lyapunov 方程变成只含状态轨迹、控制输入和未知$P_k$的积分等式。
-*   【作者步骤】：论文给出积分恒等式，并说明在充分激励条件下可以由在线测得的$x,u_k$唯一确定对称矩阵$P_k$。
-*   【补全推导】：固定策略$u_k=-K_kx$时，式 (6)给出
-
-$$
-\frac{d}{dt}\left(x^TP_kx\right)
-=-x^T(Q+K_k^TRK_k)x.
-$$
-
-又因为 $u_k^TRu_k=x^TK_k^TRK_kx$，所以
-
-$$
-\frac{d}{dt}\left(x^TP_kx\right)
-=-\left(x^TQx+u_k^TRu_k\right).
-$$
-
-从 $t$ 积分到 $t+\delta t$ 并移项，就得到式 (8)。
-
-*   后续去向：Sec. 3 的式 (9)-(10)保留任意实际输入  $u$  ，把探索信号产生的附加项显式纳入等式，并将  $P_k$  与  $K_{k+1}$  一起求解。
-
-### 【学习解释】
-
-式 (8)可以看成一条监督学习样本：
-
-```
-输入特征：x(t)、x(t+δt)及区间内的 x、u_k
-未知参数：对称矩阵 P_k
-监督目标：区间累计代价
-```
-
-因为 $x^TP_kx$ 对 $P_k$ 的独立元素是线性的，多收集若干个不同时间区间，就能组成线性方程组求 $P_k$。对称 $n\times n$ 矩阵只有 $n(n+1)/2$ 个独立未知量，但样本还必须足够丰富、回归矩阵具有足够秩；只有样本数量多并不保证可辨识。
-
-### 论文明确指出的局限
-
-1.  **仍需知道$B$**：式 (8)只替代式 (6)中的 $A$；策略改进式 (7)仍为 $K_{k+1}=R^{-1}B^TP_k$。
-2.  **需要充分激励**：若状态轨迹变化方向不足，就无法唯一恢复 $P_k$。
-3.  **探索噪声破坏严格等价**：实际输入若为 $u=-K_kx+e$，系统轨迹不再由纯闭环 $dot x=(A-BK_k)x$ 产生。
-4.  **每轮需要重新采集数据**：$K_k$ 更新后，纯策略轨迹也发生变化，导致学习速度降低。
-
-### 【补全推导】探索噪声为什么会产生偏差
-
-若实际控制输入为
-
-$$
-u=-K_kx+e,
-$$
-
-则状态方程变成
-
-$$
-\dot x=(A-BK_k)x+Be.
-$$
-
-此时价值函数导数多出一项：
-
-$$
-\dot V_k
-=-x^T(Q+K_k^TRK_k)x
-+2e^TB^TP_kx.
-$$
-
-式 (8)没有包含 $2e^TB^TP_kx$，所以使用带探索噪声的真实轨迹直接套用式 (8)，得到的 $P_k$ 一般不再与式 (6)的精确解相同。
-
-### 【批判性分析】
-
-式 (8)已经具有数据驱动特征，但只能称为“部分无模型的策略评价”：它没有解决策略改进对 $B$ 的依赖，也没有自然容纳探索输入。因此不能把它与本文 Sec. 3 的完全未知动力学算法混为一谈。
-
-### 【局部证据截图】
-
-![\<img alt="Zotero PDF p.2, Eq.8 and limitations" data-attachment-key="GW9G8S2R" src="attachments/GW9G8S2R.png" ztype="zimage">](attachments/GW9G8S2R.png)
-
-### 【理解检查】
-
-请说明：式 (8)消除了哪个未知矩阵？为什么加入探索噪声后不能直接使用原式？为什么还不能称为完全无模型？
-
-### 【返回锚点】
-
-*   下一段：`In this section, we will present our new online learning strategy...`
-
-*   位置：Zotero PDF p. 2，Sec. 3，Eqs. (9)-(10)
-
-*   Zotero 跳转：[继续阅读](zotero://open-pdf/library/items/RACDQMBV?page=2)
-
-## 3. 精读单元：Kleinman Policy Iteration
-
-*   单元 ID：`sec2-theorem1-eq6-7`
-
-*   状态：`已讲解，待理解确认`
-
-*   位置：Zotero PDF p. 2，Sec. 2，Theorem 1，Eqs. (6)-(7)
-
-*   原文起始短语：`Let K_1 be any stabilizing feedback gain matrix`
-
-*   Zotero 跳转：[在 Zotero 中打开](zotero://open-pdf/library/items/RACDQMBV?page=2)
-
-*   本单元在全文中的作用：把非线性 ARE 的直接求解改写为可迭代的“策略评价 + 策略改进”，为后文的数据驱动改写提供算法骨架。
-
-### 【论文原文】
-
-> “Let $K_1$ be any stabilizing feedback gain matrix...”
-
-### 【中文翻译】
-
-令 $K_1$ 为任意一个能够稳定系统的反馈增益矩阵，并通过 Lyapunov 方程求出当前策略的价值矩阵；随后递归更新策略。
-
-### 【论文原文】式 (6)：策略评价
-
-$$
-(A-BK_k)^TP_k+P_k(A-BK_k)+Q+K_k^TRK_k=0.
-\tag{6}
-$$
-
-### 【论文原文】式 (7)：策略改进
-
-$$
-K_k=R^{-1}B^TP_{k-1}.
-\tag{7}
-$$
-
-论文采用上述索引。将下标整体平移一位后，等价的统一算法形式为：
-
-$$
-K_k
-\xrightarrow{\text{式 (6)：评价}}
-P_k
-\xrightarrow{\text{式 (7)：改进}}
-K_{k+1}=R^{-1}B^TP_k.
-$$
-
-### 【公式逻辑】
-
-*   来源：式 (1)-(5) 的线性系统、二次代价、ARE 与最优增益关系。
-*   当前作用：避免直接求解关于$P$非线性的 ARE，改为反复求解关于$P_k$线性的 Lyapunov 方程。
-*   【作者步骤】：论文给出式 (6)、式 (7)及稳定性、代价单调性和收敛性结论，没有在正文中重证 Kleinman 定理。
-*   【补全推导】：对固定策略$u=-K_kx$，闭环矩阵为
-
-$$
-A_k=A-BK_k.
-$$
-
-当前策略的瞬时代价变成
-
-$$
-x^TQx+u^TRu
-=x^T(Q+K_k^TRK_k)x.
-$$
-
-令当前策略的价值函数为 $V_k(x)=x^TP_kx$，则
-
-$$
-\dot V_k
-=x^T(A_k^TP_k+P_kA_k)x.
-$$
-
-为了让 $V_k$ 等于从当前时刻到无穷远的累计代价，需要满足
-
-$$
-\dot V_k=-x^T(Q+K_k^TRK_k)x,
-$$
-
-这正好得到式 (6)。然后利用 $P_k$ 对策略进行贪心改进，得到 $K_{k+1}=R^{-1}B^TP_k$。
-
-*   后续去向：式 (8)尝试不显式使用  $A$  来实现策略评价；Sec. 3 再进一步消除对  $B$  的依赖。
-
-### 【学习解释】
-
-把它对应到软件工程中的迭代过程：
-
-```
-当前策略 K_k
-    -> 计算它的长期代价模型 P_k       # policy evaluation
-    -> 根据 P_k 生成更好的 K_{k+1}    # policy improvement
-    -> 重复，直到 P_k 不再明显变化
-```
-
-式 (6) 对 $P_k$ 是线性的，因为 $K_k$ 在本轮被视为已知常量；ARE 中则含有 $PBR^{-1}B^TP$，对 $P$ 是二次的。
-
-### Theorem 1 的三条保证
-
-1.  $A-BK_k$ 始终是 Hurwitz：每轮学习都保持闭环稳定。
-2.  $P^*\preceq P_{k+1}\preceq P_k$：代价矩阵按半正定序单调下降，而不是每个矩阵元素逐项下降。
-3.  $K_k\to K^*$、$P_k\to P^*$：迭代最终收敛到 LQR 最优解。
-
-### 【批判性分析】
-
-Theorem 1 还不是本文最终的无模型算法：式 (6)需要 $A-BK_k$，式 (7)需要 $B$。它只提供正确的策略迭代骨架；后续真正的贡献是用状态与输入数据替代这些未知矩阵。
-
-### 【局部证据截图】
-
-![\<img alt="Zotero PDF p.2, Theorem 1, Eqs.6-7" width="688" height="776" data-attachment-key="79VE5EJS" src="attachments/79VE5EJS.png" ztype="zimage"> | 688](attachments/79VE5EJS.png)
-
-### 【理解检查】
-
-请用自己的话复述：为什么式 (6)叫“策略评价”，式 (7)叫“策略改进”，以及 Theorem 1 保证了哪三件事。
-
-### 【返回锚点】
-
-*   下一段：`For the purpose of solving (6) without the knowledge of A...`
-
-*   位置：Zotero PDF p. 2，Eq. (8)及其后续局限分析
-
-*   Zotero 跳转：[继续阅读](zotero://open-pdf/library/items/RACDQMBV?page=2)
