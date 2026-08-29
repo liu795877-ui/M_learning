@@ -1,0 +1,13 @@
+{
+  "name": "zotero-gpt-math-paste",
+  "version": "0.1.3",
+  "private": true,
+  "description": "Convert ChatGPT formulas into editable Zotero note formulas on paste.",
+  "scripts": {
+    "test": "node --test tests/formula-converter.test.js tests/paste-handler.test.js",
+    "build": "powershell -NoProfile -ExecutionPolicy Bypass -File scripts/build.ps1"
+  },
+  "devDependencies": {
+    "linkedom": "0.16.11"
+  }
+}
