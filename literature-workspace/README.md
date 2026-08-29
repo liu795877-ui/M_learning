@@ -20,7 +20,7 @@
 
 ## 单篇论文目录
 
-优先使用 Zotero citation key；没有时使用 `YYYY-FirstAuthor-Short-Title`。目录内采用 `quick-note.md`、`full-note.md`、`formula-notes.md`、`figure-notes.md`、`code-map.md` 和 `reading-state.yaml`。
+优先使用 Zotero citation key；没有时使用 `YYYY-FirstAuthor-Short-Title`。目录内采用 `quick-note.md`、`full-note.master.md`、`formula-notes.md`、`figure-notes.md`、`code-map.md` 和 `reading-state.yaml`。若启用 Better Notes，`full-note.md` 仅作为 Zotero 同步镜像，不由 Codex 直接编辑，也不纳入 Git。
 
 ## 写入原则
 

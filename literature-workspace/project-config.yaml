@@ -27,11 +27,17 @@ naming:
   fallback: "YYYY-FirstAuthor-Short-Title"
 notes:
   quick: "quick-note.md"
-  full: "full-note.md"
+  full: "full-note.master.md"
+  zotero_mirror: "full-note.md"
   formula: "formula-notes.md"
   figure: "figure-notes.md"
   code_map: "code-map.md"
   state: "reading-state.yaml"
+zotero_sync:
+  mode: "isolated_mirror"
+  master_is_source_of_truth: true
+  require_guard_before_publish: true
+  capture_mirror_changes_before_publish: true
 math:
   inline: "$...$"
   display: "$$...$$"
@@ -63,7 +69,14 @@ git:
   prefer_revert_over_destructive_reset: true
 adp_paper_set:
   expected_count: 4
-  status: "waiting_for_pdfs"
+  status: "prerequisite_course_complete_waiting_for_P2_source_verification"
   supervisor_order: []
-  adaptive_order: []
+  adaptive_order:
+    - "2021-Zhao-Robust-Control-Robotic-Systems-ADP: map preview only"
+    - "jiang2012computational"
+    - "vamvoudakis2010online"
+    - "zhao2020adaptive"
+    - "2021-Zhao-Robust-Control-Robotic-Systems-ADP: selective deep reading"
+  source_warnings:
+    - "jiang2012computational supplied PDF has internally inconsistent 2018 front matter; replace with verified 2012 version before formula-level reading"
   initialization_command: "初始化这四篇 ADP 论文：先横向分析关系，再生成自适应阅读顺序和预备课程"

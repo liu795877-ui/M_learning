@@ -18,7 +18,7 @@ Use a mentor-style, evidence-first workflow for a software-engineering student c
 ## Route the request
 
 - Quick screening, multi-paper triage, ordering: read [modules/paper-screening.md](modules/paper-screening.md).
-- Staged deep reading, translation, teaching, checks: read [modules/deep-reading.md](modules/deep-reading.md) and [modules/prerequisite-tutor.md](modules/prerequisite-tutor.md).
+- Staged deep reading, translation, teaching, checks: read [modules/deep-reading.md](modules/deep-reading.md), [modules/paper-anchor-protocol.md](modules/paper-anchor-protocol.md), and [modules/prerequisite-tutor.md](modules/prerequisite-tutor.md).
 - Formula, algorithm, theorem, proof: also read [modules/formula-and-proof.md](modules/formula-and-proof.md).
 - Figures, tables, curves, screenshots: read [modules/figure-analysis.md](modules/figure-analysis.md).
 - Repository mapping, reproduction, code audit: read [modules/paper-code-map.md](modules/paper-code-map.md).
@@ -37,7 +37,7 @@ Produce a bounded screening report: problem, importance, claimed contribution, e
 
 ### Deep mode
 
-Proceed by learning stages rather than blindly following sections:
+Before teaching, build a verifiable Zotero/PDF anchor index. Then proceed through complete source-grounded units rather than detached numbered lessons:
 
 1. Source inventory and quick positioning.
 2. Minimal prerequisite course.
@@ -49,7 +49,7 @@ Proceed by learning stages rather than blindly following sections:
 8. Research implications and research-question funnel.
 9. Quick/full Zotero notes, reading state, and proposed knowledge updates.
 
-Pause after each stage unless the user requests one-pass output. Use 2–3 short checks for ordinary content; require the user to restate core algorithms or proofs in their own words. Save a clear continuation point.
+Pause after each source unit unless the user requests one-pass output. Use 2–3 short checks for ordinary content; require the user to restate core algorithms or proofs in their own words. Save the exact current and return anchors. Never count prerequisite tutoring or an anchor pre-scan as paper-reading progress.
 
 ## Enforce source labels
 
@@ -86,9 +86,11 @@ Never upgrade mastery automatically. Record an evidence-based recommendation and
 
 Follow the schema in [schemas/write-policy.yaml](schemas/write-policy.yaml). Read before editing, patch only relevant sections, preserve uncertain/conflicting content, and append source/date/confidence to consequential updates. Write deterministic metadata to paper records; write explanations to paper notes; route cross-paper relationships, novelty claims, and research ideas to `.pending/` or pending knowledge-base sections until user confirmation. Append `changelog.md`; never overwrite user material silently.
 
+When Zotero Better Notes sync is enabled, treat `full-note.master.md` as the Git/Codex source of truth and `full-note.md` as the Zotero-owned mirror. Never edit the mirror directly. Before and after publishing, run [scripts/zotero-note-bridge.ps1](scripts/zotero-note-bridge.ps1) with `Status` or `Publish`; stop if the mirror changed since the last baseline, shrank abnormally, or contains a serialization error. Capture Zotero-side edits for manual merge rather than replacing the master.
+
 When the workspace is a Git repository, keep one coherent commit per completed reading stage or confirmed knowledge update. Never commit secrets, large source PDFs, datasets, model weights, caches, or nested external repositories. Do not push, publish, rewrite history, or create a remote unless the user explicitly requests it.
 
-Use [templates/quick-note.md](templates/quick-note.md), [templates/full-note.md](templates/full-note.md), [templates/reading-state.yaml](templates/reading-state.yaml), and [schemas/paper-metadata.yaml](schemas/paper-metadata.yaml) when creating artifacts.
+Use [templates/quick-note.md](templates/quick-note.md), [templates/full-note.md](templates/full-note.md), [templates/reading-state.yaml](templates/reading-state.yaml), and [schemas/paper-metadata.yaml](schemas/paper-metadata.yaml) when creating artifacts. Save the full-note template as the configured canonical master filename.
 
 ## Research priority
 

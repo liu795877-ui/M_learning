@@ -1,4 +1,4 @@
-schema_version: 1
+schema_version: 2
 paper_id: ""
 citation_key: ""
 mode: "quick"
@@ -6,10 +6,41 @@ status: "not_started"
 completed_stages: []
 current_stage: "source_inventory"
 current_location:
+  zotero_page: null
   section: ""
-  page: null
   equation: ""
   figure: ""
+  table: ""
+  theorem: ""
+  algorithm: ""
+  opening_phrase: ""
+  logical_role: ""
+  zotero_link: ""
+anchor_prescan:
+  status: "not_started"
+  source_verified: false
+  source_warnings: []
+  section_map: []
+  numbered_objects: []
+navigation:
+  previous_unit: ""
+  current_unit: ""
+  next_unit: ""
+units: []
+return_anchor:
+  zotero_page: null
+  section: ""
+  numbered_object: ""
+  opening_phrase: ""
+  zotero_link: ""
+active_detour:
+  status: "none"
+  topic: ""
+  reason: ""
+understanding_check:
+  status: "not_started"
+  method: ""
+  evidence: ""
 next_action: ""
 must_master: []
 open_questions: []
@@ -17,6 +48,8 @@ pending_confirmations: []
 source_inventory:
   pdf: ""
   zotero_item: ""
+  zotero_attachment_key: ""
+  pdf_version_note: ""
   screenshots: []
   repository: ""
 last_updated: "YYYY-MM-DD"

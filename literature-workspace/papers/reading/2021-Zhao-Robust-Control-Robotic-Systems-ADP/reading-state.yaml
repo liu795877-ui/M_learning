@@ -1,0 +1,22 @@
+schema_version: 1
+paper_id: "2021-Zhao-Robust-Control-Robotic-Systems-ADP"
+citation_key: ""
+mode: "deep_selective"
+status: "map_read"
+completed_stages: ["source_inventory", "abstract", "table_of_contents", "conclusion_and_outlook"]
+current_stage: "waiting_for_P3_then_chapter_2"
+current_location:
+  section: "Chapter 2: robot robust control based on ADP"
+  page: 29
+  equation: ""
+  figure: ""
+next_action: "After P3, map Chapter 2 formulas to the journal paper and robot dynamics"
+must_master: ["robot dynamics", "robust-optimal equivalence", "single critic", "tracking augmentation", "output feedback"]
+open_questions: ["Which chapter formulas exactly reproduce P3?", "What real-time hardware and sampling rate were used?", "Which signals were actually measured?"]
+pending_confirmations: ["Choose or generate a stable Zotero citation key for the thesis"]
+source_inventory:
+  pdf: "inbox/基于自适应动态规划的机器人系统鲁棒控制研究_赵军.pdf"
+  zotero_item: ""
+  screenshots: []
+  repository: ""
+last_updated: "2026-07-13"

@@ -5,15 +5,20 @@
 For each important equation record:
 
 - exact paper location and original notation;
+- source lineage: preceding equation, definition, or assumption;
 - purpose in the argument;
 - variable dictionary: meaning, type, dimension, unit, dependency;
 - assumptions and boundary/initial conditions;
 - derivation from the preceding equation, including omitted algebra when material;
+- derivation provenance: separate `【作者步骤】` from `【补全推导】`;
+- downstream destination: the next equation, algorithm step, theorem, or experiment that consumes it;
 - physical/control interpretation;
 - code-level input, intermediate values, output, and tensor shape;
 - dimension/unit check and unresolved inconsistency.
 
 Maintain original and unified symbols without silently replacing the paper notation.
+
+Apply the full chain `来源 -> 当前作用 -> 作者步骤/补全推导 -> 后续去向` to key equations only. For ordinary equations, keep variable definitions and derivation logic without manufacturing an artificial lineage. If an exact formula anchor cannot be verified, label `【未能确认】`, do not treat it as paper content, and do not advance reading progress.
 
 ## Algorithm depth
 
